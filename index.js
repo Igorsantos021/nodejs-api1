@@ -10,6 +10,8 @@ app.get("/heroes", function(req,res){
     res.send(herois)
 })
 
+
+//ENDPOINT listagem de UM heroi (Read single => [GET])
 app.get("/heroes/:id", function(req,res){
     //acesar o paramentro de rota ID
     const id = req.params.id
@@ -21,6 +23,15 @@ app.get("/heroes/:id", function(req,res){
     res.send(umheroi)
 })
 
+
+// todo o corpo da requisição virá como JSON
+app.use(express.json())
+
+
+// ENDPOINT de criação (CREATE => [POST])
+app.post("/heroes", function(req, res){
+    res.send(req.body)
+})
 
 /*
 app.post()
